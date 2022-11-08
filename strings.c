@@ -67,3 +67,52 @@ int _strstr(char *environ, char *path)
 	return (0);
 }
 
+/**
+ * _strlen - Calculate the length of a string
+ * @string: string to be counted.
+ * Return: number of bytes in the string.
+ */
+int _strlen(char *string)
+{
+	int counter = 0;
+
+	while (*(string + counter))
+		counter++;
+
+	return (counter);
+}
+/**
+ * _atoi - Convert a string to an integer
+ * @string: string to convert
+ * Return: the converted value, 0 on failure.
+ */
+int _atoi(char *string)
+{
+	int a = 0, b = 0, d = 0, c = 0;
+	unsigned int conversion = 0;
+
+	while (string[a] != '\0')
+		d++, a++;
+
+	for (b = 0 + c; b <= d - 1; b++)
+	{
+		if (string[b] >= 48 && string[b] <= 57)
+		{
+			conversion = ((conversion * 10) + string[b] - '0');
+			if (string[b + 1] < 48 || string[b + 1] > 57)
+				break;
+		}
+	}
+
+	c = 0;
+	b = 0;
+	while (c != 1)
+	{
+		if (string[b] >= 48 && string[b] <= 57)
+			c = 1;
+		if (string[b] == 45)
+			conversion = (conversion * -1);
+		b++;
+	}
+	return (conversion);
+}
